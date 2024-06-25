@@ -1,7 +1,7 @@
 return {
-	"rose-pine/neovim",
-	as = "rose-pine",
+	"ellisonleao/gruvbox.nvim",
+	as = "ellisonleao",
 	config = function()
-		vim.cmd("colorscheme rose-pine")
+		vim.cmd("colorscheme gruvbox")
 	end,
 }
