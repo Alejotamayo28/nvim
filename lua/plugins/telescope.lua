@@ -9,14 +9,12 @@ return {
     config = function()
       local builtin = require("telescope.builtin")
       vim.keymap.set("n", "<C-f>", builtin.live_grep, {})
-
       vim.keymap.set("n", "<C-p>", function()
         builtin.find_files({
           cwd = vim.fn.getcwd(),
           file_ignore_patterns = { "node_modules" }, -- Ignora el directorio node_modules
         })
       end, {})
-
       vim.keymap.set("n", "<leader>fw", builtin.grep_string, {})
       vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Search diagnostics" })
       vim.keymap.set("n", "<C-o>", function()

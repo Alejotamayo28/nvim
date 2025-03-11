@@ -23,9 +23,17 @@ return {
           },
         },
       },
+      event_handlers = {
+        {
+          event = "neo_tree_buffer_enter",
+          handler = function()
+            vim.cmd("highlight NeoTreeNormal guibg=#000000")
+            vim.cmd("highlight NeoTreeNormalNC guibg=#000000")
+            vim.cmd("highlight NeoTreeEndOfBuffer guibg=#000000 guifg=#000000")
+          end
+        }
+      }
     })
-
-    -- Resaltado del archivo seleccionado
     vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = "#3B4252", fg = "none" })
     vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal current toggle<CR>", {});
   end,

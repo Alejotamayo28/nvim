@@ -18,10 +18,11 @@ vim.opt.number = true           -- Muestra números de línea absolutos
 vim.opt.relativenumber = true   -- Muestra números de línea relativos
 
 -- Altura de la línea de comandos
-vim.opt.cmdheight = 1  -- Altura de la línea de comandos
+vim.opt.cmdheight = 0  -- Altura de la línea de comandos
 
 vim.opt.hlsearch = true  -- Resalta todas las coincidencias después de presionar Enter
 
 vim.opt.ignorecase = true  -- Ignora mayúsculas y minúsculas en la búsqueda
 vim.opt.smartcase = true   -- Distingue mayúsculas y minúsculas solo si la búsqueda contiene mayúsculas
+
 
