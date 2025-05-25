@@ -1,21 +1,3 @@
---[[return {
-    'echasnovski/mini.indentscope',
-  version = false,
-  config = function()
-    require('mini.indentscope').setup({
-      symbol = '╎ ',
-      draw = {
-        delay = 100,
-        animation = require('mini.indentscope').gen_animation.none(),
-      },
-      options = { indent_at_cursor = true,
-        try_as_border = false
-      }
-    })
-  end
-}
---]]
-
 return {
   "lukas-reineke/indent-blankline.nvim",
   main = "ibl",
