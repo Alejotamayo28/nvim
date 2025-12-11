@@ -30,17 +30,17 @@ return {
       options = {
         theme = {
           normal = {
-            a = {fg = colors.fg, bg = colors.bg},
-            b = {fg = colors.fg, bg = colors.bg},
-            c = {fg = colors.fg, bg = colors.bg},
-            z = {fg = colors.fg, bg = colors.bg},
+            a = { fg = colors.fg, bg = colors.bg },
+            b = { fg = colors.fg, bg = colors.bg },
+            c = { fg = colors.fg, bg = colors.bg },
+            z = { fg = colors.fg, bg = colors.bg },
           },
-          insert = {a = {fg = colors.green, bg = colors.bg}},
-          visual = {a = {fg = colors.violet, bg = colors.bg}},
-          replace = {a = {fg = colors.red, bg = colors.bg}},
+          insert = { a = { fg = colors.green, bg = colors.bg } },
+          visual = { a = { fg = colors.violet, bg = colors.bg } },
+          replace = { a = { fg = colors.red, bg = colors.bg } },
         },
-        component_separators = { left = '|', right = '|'},
-        section_separators = { left = '', right = ''},
+        component_separators = { left = '|', right = '|' },
+        section_separators = { left = '', right = '' },
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -113,7 +113,11 @@ return {
               readonly = '',
               unnamed = '[Sin nombre]',
             }
-          }
+          }, {
+          function()
+            return "𝖲"
+          end
+        }
         },
         lualine_x = {
           {
@@ -128,7 +132,7 @@ return {
           },
           { 'encoding' },
           { 'fileformat' },
-          { 
+          {
             'filetype',
             colored = true,
             icon_only = false,
@@ -150,8 +154,8 @@ return {
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {'filename'},
-        lualine_x = {'location'},
+        lualine_c = { 'filename' },
+        lualine_x = { 'location' },
         lualine_y = {},
         lualine_z = {}
       },
