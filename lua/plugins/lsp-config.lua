@@ -21,7 +21,7 @@ return {
 
       local lspconfig = require("lspconfig")
 
-      local servers = { "yamlls", "lua_ls", "clangd" }
+      local servers = { "yamlls", "lua_ls", "clangd", "terraformls", "pyright" }
 
       for _, server in ipairs(servers) do
         lspconfig[server].setup({
@@ -32,7 +32,7 @@ return {
       lspconfig.ts_ls.setup({
         capabilities = capabilities,
         root_dir = function(fname)
-            return vim.fs.root(fname, {'tsconfig.json', 'package.json', 'jsconfig.json', '.git'})
+          return vim.fs.root(fname, { 'tsconfig.json', 'package.json', 'jsconfig.json', '.git' })
         end
       })
 

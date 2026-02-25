@@ -27,14 +27,29 @@ return {
         {
           event = "neo_tree_buffer_enter",
           handler = function()
-            vim.cmd("highlight NeoTreeNormal guibg=#000000")
-            vim.cmd("highlight NeoTreeNormalNC guibg=#000000")
-            vim.cmd("highlight NeoTreeEndOfBuffer guibg=#000000 guifg=#000000")
+            -- Grupos principales
+            vim.cmd("highlight NeoTreeNormal guibg=NONE")
+            vim.cmd("highlight NeoTreeNormalNC guibg=NONE")
+
+            -- Corrige fondo negro en buffers vacíos
+            vim.cmd("highlight Normal guibg=NONE")
+            vim.cmd("highlight NormalNC guibg=NONE")
+            vim.cmd("highlight EndOfBuffer guibg=NONE guifg=NONE")
+
+            vim.cmd("highlight EndOfBuffer guibg=NONE guifg=NONE")
+            vim.cmd("highlight NeoTreeEndOfBuffer guibg=NONE guifg=NONE")
+
+            -- Asegura transparencia en floating windows (si algún día usas float)
+            vim.cmd("highlight NeoTreeFloatNormal guibg=NONE")
+
+            -- Otras protecciones
+            vim.cmd("highlight StatusLine guibg=NONE")
+            vim.cmd("highlight StatusLineNC guibg=NONE")
           end
         }
       }
     })
-    vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = "#3B4252", fg = "none" })
+    vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = "NONE", fg = "NONE" })
     vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal current toggle<CR>", {});
   end,
 }

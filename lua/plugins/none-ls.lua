@@ -6,10 +6,21 @@ return {
   config = function()
     local null_ls = require("null-ls")
     null_ls.setup({
-      sources = {
-        null_ls.builtins.formatting.prettier
-      },
+sources = {
+			-- Formatter: Biome
+			null_ls.builtins.formatting.biome,
+			-- Diagnostics (linting): Biome
+			null_ls.builtins.diagnostics.biome,
+			-- Formatter: Ruff
+			null_ls.builtins.formatting.ruff,
+			-- Diagnostics: Ruff
+			null_ls.builtins.diagnostics.ruff,
+		},
     })
-    vim.keymap.set("n", "<C-s>", vim.lsp.buf.format, {})
+
+    -- Formatear con LSP (Biome)
+    vim.keymap.set("n", "<C-s>", function()
+      vim.lsp.buf.format({ async = false })
+    end, {})
   end,
 }

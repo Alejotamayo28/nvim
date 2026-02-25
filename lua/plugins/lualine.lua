@@ -1,20 +1,21 @@
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
+
   config = function()
     -- Colores personalizados que coinciden con el tema de tmux
     local colors = {
-      bg = '#1a1b26',
-      fg = '#c0caf5',
-      yellow = '#e0af68',
-      cyan = '#7dcfff',
-      darkblue = '#7aa2f7',
-      green = '#9ece6a',
-      orange = '#ff9e64',
-      violet = '#bb9af7',
-      magenta = '#bb9af7',
-      blue = '#7aa2f7',
-      red = '#f7768e'
+      bg = '#282828',       -- Gruvbox dark background
+      fg = '#ebdbb2',       -- Gruvbox light foreground
+      yellow = '#fabd2f',   -- Gruvbox bright yellow
+      cyan = '#8ec07c',     -- Gruvbox bright cyan
+      darkblue = '#458588', -- Gruvbox blue
+      green = '#b8bb26',    -- Gruvbox bright green
+      orange = '#fe8019',   -- Gruvbox bright orange
+      violet = '#d3869b',   -- Gruvbox bright purple
+      magenta = '#d3869b',  -- Gruvbox bright purple
+      blue = '#83a598',     -- Gruvbox blue
+      red = '#fb4934'
     }
 
     local conditions = {
@@ -92,16 +93,6 @@ return {
             icon = '',
             color = { fg = colors.violet, gui = 'bold' },
           },
-          {
-            'diff',
-            symbols = { added = ' ', modified = ' ', removed = ' ' },
-            diff_color = {
-              added = { fg = colors.green },
-              modified = { fg = colors.orange },
-              removed = { fg = colors.red },
-            },
-            cond = conditions.hide_in_width,
-          },
         },
         lualine_c = {
           {
@@ -113,42 +104,13 @@ return {
               readonly = '',
               unnamed = '[Sin nombre]',
             }
-          }, {
-          function()
-            return "𝖲"
-          end
-        }
+          },
         },
         lualine_x = {
-          {
-            'diagnostics',
-            sources = { 'nvim_diagnostic' },
-            symbols = { error = ' ', warn = ' ', info = ' ' },
-            diagnostics_color = {
-              color_error = { fg = colors.red },
-              color_warn = { fg = colors.yellow },
-              color_info = { fg = colors.cyan },
-            },
-          },
-          { 'encoding' },
-          { 'fileformat' },
-          {
-            'filetype',
-            colored = true,
-            icon_only = false,
-          }
         },
         lualine_y = {
-          {
-            'progress',
-            color = { fg = colors.fg, gui = 'bold' },
-          }
         },
         lualine_z = {
-          {
-            'location',
-            color = { fg = colors.fg, gui = 'bold' },
-          }
         },
       },
       inactive_sections = {
