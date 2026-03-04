@@ -33,12 +33,13 @@ return {
           ["<C-e>"] = cmp.mapping.abort(),
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
         }),
-        sources = cmp.config.sources({
-          { name = "nvim_lsp" },
-          { name = "luasnip" }, -- For luasnip users.
-        }, {
-          { name = "buffer" },
-        }),
+      sources = cmp.config.sources({
+        { name = "vim-dadbod-completion" },
+        { name = "nvim_lsp" },
+        { name = "luasnip" }, -- For luasnip users.
+      }, {
+        { name = "buffer" },
+      }),
       })
     end,
   },
