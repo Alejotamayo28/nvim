@@ -4,10 +4,19 @@ return {
   config = function()
     local config = require("nvim-treesitter.configs")
     config.setup({
-      auto_install = true, -- Instalación automática de parsers
+      ensure_installed = {
+        "lua",
+        "python",
+        "javascript",
+        "typescript",
+        "yaml",
+        "json",
+        "markdown",
+      },
+      auto_install = true, -- Instalación automática de parsers adicionales
       highlight = {
-        enable = true,     -- Habilitar resaltado
-        disable = { "cpp" }
+        enable = true, -- Habilitar resaltado
+        disable = { "cpp", "dockerfile" } -- Desactivar para Dockerfiles (bug con instrucciones multi-línea)
       },
       incremental_selection = {
         enable = true,               -- Habilitar selección incremental

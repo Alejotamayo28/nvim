@@ -15,10 +15,10 @@ return {
 			auto_install = true,
 		},
 	},
-	{
-		"neovim/nvim-lspconfig",
-		lazy = false,
-		config = function()
+  {
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			-- Servidores con configuración por defecto

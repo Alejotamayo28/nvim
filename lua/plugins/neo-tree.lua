@@ -1,6 +1,8 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
+  cmd = "Neotree",
+  keys = { { "<C-n>", "<cmd>Neotree filesystem reveal current toggle<cr>", desc = "Toggle Neo-tree" } },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
@@ -49,7 +51,6 @@ return {
         }
       }
     })
-    vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = "NONE", fg = "NONE" })
-    vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal current toggle<CR>", {});
-  end,
+  vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = "NONE", fg = "NONE" })
+end,
 }
