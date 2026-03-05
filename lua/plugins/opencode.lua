@@ -23,7 +23,7 @@ return {
         display_context_size = true,
         display_cost = true,
         -- Persistir estado para restauración rápida
-        persist_state = true,
+        persist_state = false,
         -- Input en la parte inferior
         input_position = "bottom",
       },
@@ -48,10 +48,10 @@ return {
           ["<leader>oy"] = { "add_visual_selection", mode = { "v" }, desc = "Add selection to context" },
           ["<leader>oa"] = { "select_agent", desc = "Select agent/mode" },
         },
-        input_window = {
-          ["<S-CR>"] = { "submit_input_prompt", mode = { "n", "i" }, desc = "Submit prompt" },
-          ["<esc>"] = false,
-          ["<C-c>"] = false,
+    input_window = {
+			["<S-CR>"] = { "submit_input_prompt", mode = { "n", "i" }, desc = "Submit prompt" },
+			["<esc>"] = false,
+			["<C-c>"] = { "cancel", desc = "Cancel request" },
           ["~"] = { "mention_file", mode = "i", desc = "Mention file" },
           ["@"] = { "mention", mode = "i", desc = "Mention" },
           ["/"] = { "slash_commands", mode = "i", desc = "Slash commands" },
@@ -60,9 +60,9 @@ return {
           ["<UP>"] = { "prev_prompt_history", mode = { "n", "i" }, desc = "Previous prompt" },
           ["<DOWN>"] = { "next_prompt_history", mode = { "n", "i" }, desc = "Next prompt" },
         },
-        output_window = {
-          ["<esc>"] = false,
-          ["<C-c>"] = false,
+    output_window = {
+			["<esc>"] = false,
+			["<C-c>"] = { "cancel", desc = "Cancel request" },
           ["]]"] = { "next_message", desc = "Next message" },
           ["[["] = { "prev_message", desc = "Previous message" },
           ["<TAB>"] = { "toggle_pane", mode = { "n", "i" }, desc = "Toggle panes" },
